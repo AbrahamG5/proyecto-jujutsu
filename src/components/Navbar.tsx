@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div className="p-2">
       <nav
-        className=" flex h-14 p-1 bg-gradient-to-b from-indigo-800 to-indigo-500 shadow-white shadow-xs
+        className=" flex h-14 p-1 bg-linear-to-b from-indigo-800 to-indigo-500 shadow-white shadow-xs
       border-b border-b-white items-center content-center rounded-2xl"
       >
         <input

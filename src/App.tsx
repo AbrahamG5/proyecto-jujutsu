@@ -1,3 +1,4 @@
+import { Catalog } from "./components/Catalog";
 import Navbar from "./components/Navbar";
 import SingleCharacter from "./components/SingleCharacter";
 import Title from "./components/Title";
@@ -8,6 +9,7 @@ function App() {
       <Navbar />
       <Title />
       <SingleCharacter />
+      <Catalog />
     </div>
   );
 }
