@@ -1,29 +1,14 @@
-import { useState } from "react";
+import Title from "./Title";
 
 function Navbar() {
-  const [text, obtainText] = useState<string>("");
-
-  const handleSearch = (): void => {
-    // Crear un evento personalizado con el texto
-    const evento = new CustomEvent("buscarPersonaje", {
-      detail: text,
-    });
-    // Tocar la campana (disparar el evento)
-    window.dispatchEvent(evento);
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  };
   return (
     <div className="p-2">
       <nav
         className="sticky flex h-14 p-1 bg-linear-to-b from-indigo-800 to-indigo-500 shadow-white shadow-xs
       border-b border-b-white items-center content-center rounded-2xl"
       >
-        <input
+        <Title />
+        {/* <input
           id="inputCharacter"
           type="text"
           placeholder="Ingresa el personaje a buscar"
@@ -39,7 +24,7 @@ function Navbar() {
           onClick={handleSearch}
         >
           Buscar
-        </button>
+        </button> */}
         <div className="size-11 ml-auto mr-2 hover:cursor-pointer">
           <img src="Logo.png" alt="Logo JujutsuHub" className="rounded-full" />
         </div>
