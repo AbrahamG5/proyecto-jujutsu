@@ -1,7 +1,22 @@
 import { useState } from "react";
 
 function Navbar() {
-  const [text, obtainText] = useState("");
+  const [text, obtainText] = useState<string>("");
+
+  const handleSearch = (): void => {
+    // Crear un evento personalizado con el texto
+    const evento = new CustomEvent("buscarPersonaje", {
+      detail: text,
+    });
+    // Tocar la campana (disparar el evento)
+    window.dispatchEvent(evento);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
   return (
     <div className="p-2">
       <nav
@@ -17,8 +32,12 @@ function Navbar() {
           onChange={(inputText) => {
             obtainText(inputText.target.value);
           }}
+          onKeyPress={handleKeyPress}
         />
-        <button className="bg-slate-600 text-white w-20 rounded-2xl hover:bg-slate-500 transition-all duration-300 cursor-pointer border h-8">
+        <button
+          className="bg-slate-600 text-white w-20 rounded-2xl hover:bg-slate-500 transition-all duration-300 cursor-pointer border h-8"
+          onClick={handleSearch}
+        >
           Buscar
         </button>
         <div className="size-11 ml-auto mr-2 hover:cursor-pointer">
